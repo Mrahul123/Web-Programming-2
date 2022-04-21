@@ -16,7 +16,7 @@
 			<h3>
                 Belanja Online
 			</h3><hr>
-			<form method="POST" action="form_belanja.php">
+			<form method="POST" >
 				<div class="form-group row">
                     <label for="customer" class="col-4 col-form-label">Customer</label> 
                     <div class="col-6">
