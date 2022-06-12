@@ -63,7 +63,7 @@ if($username){
             </tbody>
         </thead>
     </Table>
-    <a href= <?php echo base_url("index.php/matakuliah/form") ?> class="btn btn-primary btn-lg active" >Add</a>
+    <a href= <?php echo base_url("index.php/matakuliah/form") ?> class="btn btn-primary btn-lg active" >Tambah</a>
     </div>
 </body>
 </html>

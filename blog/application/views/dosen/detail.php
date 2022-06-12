@@ -24,18 +24,37 @@
             <tbody>
                 
                 <tr>
-                    <td><?php echo $dozen ->id ?></td>
-                    <td><?php echo $dozen ->nama?></td>
-                    <td><?php echo $dozen ->tmp_lahir ?></td>
-                    <td><?php echo $dozen ->tgl_lahir ?></td>
-                    <td><?php echo $dozen ->gender ?></td>
-                    <td><?php echo $dozen ->nidn ?></td>
-                    <td><?php echo $dozen ->pendidikan ?></td>
+                    <td><?php echo $dsn ->id ?></td>
+                    <td><?php echo $dsn ->nama?></td>
+                    <td><?php echo $dsn ->tmp_lahir ?></td>
+                    <td><?php echo $dsn ->tgl_lahir ?></td>
+                    <td><?php echo $dsn ->gender ?></td>
+                    <td><?php echo $dsn ->nidn ?></td>
+                    <td><?php echo $dsn ->pendidikan ?></td>
                 </tr>
-               
+
             </tbody>
         </thead>
     </Table>
+     <div class="col-md-5 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img src="<?=base_url()?>uploads/photos/<?=$dsn->id?>.jpg" width="300"/>
+                    <div class="mt-4">
+                        <h4><?=$dsn->nama?></h4>
+                        <p>Foto Dosen</p>
+                        <?php echo $error;?>
+                        <br><br>
+                        <a href="" target="_blank"><button class="btn btn-outline-info">Instagram</button></a>
+                        <br><br>
+                        <?php echo form_open_multipart('dosen/upload');?>
+                        <input type="file" name="foto" size="300"/>
+                        <input type="hidden" name="iddosen" value="<?=$dsn->id?>"/>
+                        <br><br>
+                        <input type="submit" value="Upload Foto" class="btn btn-primary"/>
+</form>
+    </div>
     </div>
 </body>
 </html>

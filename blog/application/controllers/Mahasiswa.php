@@ -63,7 +63,7 @@ class Mahasiswa extends CI_Controller{
         $this->load->model('mahasiswa_model','mahasiswa');
         //cek data berdasarkan id
         $data_mahasiswa['id'] = $id;
-        $this->mahasiswa->delete('$data_mahasiswa');
+        $this->mahasiswa->delete($data_mahasiswa);
         redirect('mahasiswa','refresh');
     }
     public function __construct()
@@ -72,6 +72,31 @@ class Mahasiswa extends CI_Controller{
         if(!$this->session->userdata('logged_in')){
             redirect('/login');
         }
+    }
+    public function upload(){
+        $_idmahasiswa =$this->input->post("idmahasiswa");
+        $this->load->model('mahasiswa_model', 'mahasiswa');
+        $siswa =$this->mahasiswa->getById($_idmahasiswa);
+        $data['siswa'] =$siswa;
+
+        $config['upload_path'] = './uploads/photos';
+        $config['allowed_types'] = 'jpg|png';
+        $config['max_size'] = 2894;
+        $config['max_width'] = 2894;
+        $config['max_height'] = 2894;
+        $config['file_name'] = $siswa->id;
+        //mengecek apakah ada file yg diupoluad atau engk
+        $this->load->library('upload',$config);
+        if(!$this->upload->do_upload('foto')){
+            $data['error'] =$this->upload->display_errors();
+        }else{
+            $data['error'] = "Upload Success";
+            $data['upload_data'] = $this->upload->data();
+        }
+        //kirim data ke detail view
+        $this->load->view('layouts/header');
+        $this->load->view('mahasiswa/detail',$data);
+        $this->load->view('layouts/footer'); 
     }
 }
 ?>

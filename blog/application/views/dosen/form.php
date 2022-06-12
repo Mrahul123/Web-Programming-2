@@ -15,7 +15,19 @@
       <input id="nama" name="nama" placeholder="Masukkan Nama" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
     </div>
   </div>
- 
+  <div class="form-group row">
+    <label class="col-4">Jenis Kelamin</label> 
+    <div class="col-8">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="laki-laki"> 
+        <label for="gender_0" class="custom-control-label">L</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="perempuan"> 
+        <label for="gender_1" class="custom-control-label">P</label>
+      </div>
+    </div>
+  </div>
   <div class="form-group row">
     <label for="tmp_lahir" class="col-4 col-form-label">Tempat Lahir</label> 
     <div class="col-8">
